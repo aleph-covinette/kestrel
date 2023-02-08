@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Oyon Tour</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'TourStyles.css' %}">
+        <script src="https://api-maps.yandex.ru/2.1/?apikey={{ TourListApiKey }}&lang=ru_RU" type="text/javascript"></script>
+        <script src="{% static 'TourListMapManager.js' %}" type="text/javascript"></script>
+    </head>
+    <body>
+        <h1>Точки интереса ВДНХ</h1>
+        <div id="TourListMap"></div>
+    </body>
+</html>
