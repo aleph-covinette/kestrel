@@ -16,11 +16,15 @@
         <h1>Интересные места ВДНХ</h1>
         <div id="indexMap"></div>
         <div id="routePoints">
-            <ul id="routePointsList">
-                {% for point in routePoints %}
-                <li id="point{{ point.id }}">{{ point.pointName }}</li>
-                {% endfor %}
-            </ul>
+            {% for point in routePoints %}
+            <div id="point{{ point.id }}">
+                <form method="post" id="removePointForm">
+                    <span>{{ point.pointName }}</span>
+                    <input type="hidden" value="{{ point.id }}"/>
+                    <input type="submit" value="Удалить">
+                </form>
+            </div>
+            {% endfor %}
         </div>
     </body>
 </html>

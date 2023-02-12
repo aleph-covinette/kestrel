@@ -27,13 +27,13 @@ function init(){
         objectManager.add(data); // Добавить точки в упрощённый отрисовщик
     });
 }
+
 /*
 Cервер Django требует чтобы все анкеты снабжались токеном CSRF, однако в нашем
 случае Яндекс отрисовывает точки динамически, поэтому токен в них заранее прописать
 нельзя. Вместо этого, мы перехватываем уже готовый запрос после нажатия кнопки
 отправки анкеты и вставляем в него нужный заголовок.
 */
-
 $(document).on('submit', '#addPointForm', function(e) {
     e.preventDefault(); // Прервать отправку автоматического запроса
     // Собрать новый (правильный) запрос:
@@ -43,8 +43,8 @@ $(document).on('submit', '#addPointForm', function(e) {
         data:
         {
             reason: 'addPoint',
-            pointName: $('#pointName').val(),
-            pointId: $('#pointId').val(),
+            pointName: e.target[0].value,
+            pointId: e.target[1].value,
             csrfmiddlewaretoken: csrftoken
         },
         /*
@@ -53,9 +53,31 @@ $(document).on('submit', '#addPointForm', function(e) {
         будут отрисованы уже "нормальным" путём - через рендер класса IndexView.
         */
         success: function(response){
-            var routePointsList = $('#routePointsList');
-            updData = '<li id="point' + response.pointIdTrue + '">' + response.pointName + '</li>'
-            routePointsList.append(updData)
+            var routePointsList = $('#routePoints');
+            updData = '<div id="point' + response.pointIdTrue + '"><form method="post" id="removePointForm"><span>' + response.pointName + '</span>';
+            updData += '<input type="hidden" value="' + response.pointIdTrue + '"/><input type="submit" value="Удалить"></form></div>';
+            routePointsList.append(updData);
+            }
+        })
+    });
+
+$(document).on('submit', '#removePointForm', function(e) {
+    console.log(e)
+    e.preventDefault(); // Прервать отправку автоматического запроса
+    // Собрать новый (правильный) запрос:
+    $.ajax({
+        type: 'POST',
+        url: '/',
+        data:
+        {
+            reason: 'removePoint',
+            pointId: e.target[0].value,
+            csrfmiddlewaretoken: csrftoken
+        },
+        success: function(response){
+            var targetId = '#point' + response.pointIdTrue;
+            var targetRoutePoint = $(targetId);
+            targetRoutePoint.remove();
             }
         })
     });
