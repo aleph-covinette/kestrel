@@ -1,6 +1,6 @@
 from django.urls import path
-from tour.views import TourListView
+from tour.views import IndexView
 
 urlpatterns = [
-    path('', TourListView.as_view()),
+    path('', IndexView.as_view()),
 ]
