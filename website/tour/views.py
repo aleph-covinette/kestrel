@@ -11,3 +11,7 @@ class TourListView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['TourListApiKey'] = config.get('main', 'api_key')
         return context
+    
+    def post(self, request, *args, **kwargs):
+        context = self.get_context_data(**kwargs)
+        return self.render_to_response(context)

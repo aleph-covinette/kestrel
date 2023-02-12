@@ -54,6 +54,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'website.wsgi.application'
 
+CSRF_COOKIE_HTTPONLY = True # Запретить пользователю получать доступ к токену через cookie
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
