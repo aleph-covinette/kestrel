@@ -1,3 +1,82 @@
-#indexMap, #routeMap {
-    width: 800px; height: 800px; padding: 0; margin: 0;
+.lmap-title {
+    text-align: center;
+}
+
+.lmap-cont {
+    display: flex;
+    padding: 10px 10px;
+}
+
+#lmap {
+    border: 2px solid black;
+    background: silver;
+    width: 800px;
+    height: 800px;
+    margin: 0px 60px;
+}
+
+.rpl-cont {
+    flex: 1 1 auto;
+    margin-right: 60px;
+    float: right;
+}
+
+.rpl {
+    padding: 5px 0px;
+    height: min-content;
+    border: 3px solid black;
+    background: silver;
+}
+
+.rpl-entry {
+    border: 3px solid black;
+    margin: 10px 25px;
+    display: flex;
+}
+
+.over {
+    border: 3px dotted black;
+}
+
+.rpl-name {
+    background-color: white;
+    font-family: Arial;
+    font-size: 18px;
+    cursor: move;
+    padding: 10px;
+    margin: 0px;
+    flex: 1 1 auto;
+    width: 75%;
+}
+
+.rpl-name:hover {
+    background-color: gainsboro;
+}
+
+.rpl-del {
+    border: none;
+    border-left: 3px solid black;
+    background-color: white;
+    font-family: Arial;
+    font-size: 18px;
+    float: right;
+    padding: 10px;
+    margin: 0px;
+}
+
+.rpl-del:hover {
+    background-color: gainsboro;
+}
+
+.rpl-href {
+    border: 3px solid black;
+    background-color: white;
+    margin: 10px 0px;
+    font-family: Arial;
+    font-size: 18px;
+    padding: 10px;
+    margin: 20px 0px;
+}
+.rpl-href:hover {
+    background-color: gainsboro;
 }

@@ -4,11 +4,11 @@
         <title>Octant | Маршрут</title>
         {% load static %}
         <link rel="stylesheet" href="{% static 'styles.css' %}">
-        <script>var pointIds = Array('{{ pointIdArray }}')</script>
-        <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey={{ octantApiKey }}" type="text/javascript"></script>
-        <script src="{% static 'index.js' %}" type="text/javascript"></script>
+        <script>var pointIds = Array('{{ routePointId }}');</script>
+        <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey={{ yandexApiKey }}" type="text/javascript"></script>
+        <script src="{% static 'route.js' %}" type="text/javascript"></script>
     </head>
 <body>
-    <div id="routeMap"></div>
+    <div id="lmap"></div>
 </body>
 </html>

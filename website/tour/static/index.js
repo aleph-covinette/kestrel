@@ -1,83 +1,53 @@
-ymaps.ready(init); // Как только завершится загрузка API...
-function init(){
-    // Создание карты ВДНХ через JS API от Яндекс:
-    var myMap = new ymaps.Map("indexMap", {
-        center: [55.833925, 37.628259], // Примерный центр ВДНХ
-        zoom: 15, // Уровень приближения при отрисовке
-        controls: ['zoomControl'] // Из элементов управления оставить только масштаб
-    }, {
-        restrictMapArea: true // Запретить выход за пределы изначально отрисованной зоны
-    });
-    myMap.setType('yandex#satellite'); // Сделать вид со спутника вместо убогой схематической карты
-    // Упрощённый отрисовщик точек:
-    objectManager = new ymaps.ObjectManager({
-        clusterize: true, // Совмещать точки в группы при необходимости
-        gridSize: 32, // Не знаю что это делает
-        clusterDisableClickZoom: true // Не знаю что это делает
-    });
-    // Выбрать стиль точек/групп при отрисовке на карте:
+ymaps.ready(mapIndexInit);
+var features = [];
+
+function mapIndexInit() {
+    var mapIndex = new ymaps.Map('lmap', {center: [55.833925, 37.628259], zoom: 15, controls: ['zoomControl']}, {restrictMapArea: true});
+    mapIndex.setType('yandex#satellite');
+    objectManager = new ymaps.ObjectManager({clusterize: true, gridSize: 32, clusterDisableClickZoom: true});
     objectManager.objects.options.set('preset', 'islands#greenDotIcon');
     objectManager.clusters.options.set('preset', 'islands#greenClusterIcons');
-    // Добавить упрощённый отрисовщик в список объектов карты:
-    myMap.geoObjects.add(objectManager);
-    // Подгрузить данные о точках из статичного файла:
-    $.ajax({
-        url: '/static/data.json'
-    }).done(function(data) {
-        objectManager.add(data); // Добавить точки в упрощённый отрисовщик
+    mapIndex.geoObjects.add(objectManager);
+    $.ajax({url: '/static/data.json'}).done(function(data) {objectManager.add(data); features = data.features;});
+}
+
+function routePointListRender(response) {
+    var routePointList = $('.rpl');
+    routePointList.children().remove();
+    for (let point in response.routePoints) {
+        updData = '<form method="post" class="rpl-entry" draggable="true"><p class="rpl-name">' + response.routePoints[point].name;
+        updData += '</p><input class="rpl-pos" type="hidden" value="' + response.routePoints[point].pos + '"/><input class="rpl-del" type="submit" value="Удалить"></form>';
+        routePointList.append(updData);
+    }
+    items = document.querySelectorAll('.rpl-entry');
+    items.forEach(function(item) {
+        item.addEventListener('dragstart', handleDragStart);
+        item.addEventListener('dragover', handleDragOver);
+        item.addEventListener('dragenter', handleDragEnter);
+        item.addEventListener('dragleave', handleDragLeave);
+        item.addEventListener('dragend', handleDragEnd);
+        item.addEventListener('drop', handleDrop);
     });
 }
 
-/*
-Cервер Django требует чтобы все анкеты снабжались токеном CSRF, однако в нашем
-случае Яндекс отрисовывает точки динамически, поэтому токен в них заранее прописать
-нельзя. Вместо этого, мы перехватываем уже готовый запрос после нажатия кнопки
-отправки анкеты и вставляем в него нужный заголовок.
-*/
-$(document).on('submit', '#addPointForm', function(e) {
-    e.preventDefault(); // Прервать отправку автоматического запроса
-    // Собрать новый (правильный) запрос:
-    $.ajax({
-        type: 'POST',
-        url: '/',
-        data:
-        {
-            reason: 'addPoint',
-            pointName: e.target[0].value,
-            pointId: e.target[1].value,
-            csrfmiddlewaretoken: csrftoken
-        },
-        /*
-        Поскольку при добавлении точек страница не должна перезагружаться, новые точки
-        добавляются в видимый пользователю список через вызов AJAX. После перезагрузки точки
-        будут отрисованы уже "нормальным" путём - через рендер класса IndexView.
-        */
-        success: function(response){
-            var routePointsList = $('#routePoints');
-            updData = '<div id="point' + response.pointIdTrue + '"><form method="post" id="removePointForm"><span>' + response.pointName + '</span>';
-            updData += '<input type="hidden" value="' + response.pointIdTrue + '"/><input type="submit" value="Удалить"></form></div>';
-            routePointsList.append(updData);
-            }
-        })
-    });
+$(document).on('submit', '.route-point-add-form', function(e) {
+    e.preventDefault();
+    targ = features.filter(function (x) {return x.id == e.target[1].value})[0];
+    $.ajax({type: 'POST', url: '/', data: {
+        reason: 'rpladd',
+        name: targ.properties.balloonContentHeader,
+        point: targ.id,
+        csrfmiddlewaretoken: csrftoken
+    },
+    success: function(response) {routePointListRender(response)}});
+});
 
-$(document).on('submit', '#removePointForm', function(e) {
-    console.log(e)
-    e.preventDefault(); // Прервать отправку автоматического запроса
-    // Собрать новый (правильный) запрос:
-    $.ajax({
-        type: 'POST',
-        url: '/',
-        data:
-        {
-            reason: 'removePoint',
-            pointId: e.target[0].value,
-            csrfmiddlewaretoken: csrftoken
-        },
-        success: function(response){
-            var targetId = '#point' + response.pointIdTrue;
-            var targetRoutePoint = $(targetId);
-            targetRoutePoint.remove();
-            }
-        })
-    });
+$(document).on('submit', '.rpl-entry', function(e) {
+    e.preventDefault();
+    $.ajax({type: 'POST',url: '/', data: {
+        reason: 'rplremove',
+        pos: e.target[0].value,
+        csrfmiddlewaretoken: csrftoken
+    },
+    success: function(response) {routePointListRender(response)}});
+});
