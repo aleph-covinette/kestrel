@@ -21,7 +21,7 @@
     float: right;
 }
 
-.points {
+.points, #info {
     padding: 5px 0px;
     height: min-content;
     border: 3px solid black;
