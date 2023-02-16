@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Octant | Карта</title>
+        <title>Kestrel | Карта</title>
         {% csrf_token %}
         {% load static %}
         <link rel="stylesheet" href="{% static 'styles.css' %}">
         <script>const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;</script>
-        <script src="https://api-maps.yandex.ru/2.1/?apikey={{ yandexApiKey }}&lang=ru_RU" type="text/javascript"></script>
+        <script src="https://api-maps.yandex.ru/2.1/?apikey={{ secret }}&lang=ru_RU" type="text/javascript"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
         <script src="{% static 'drag.js' %}" type="text/javascript"></script>
         <script src="{% static 'index.js' %}" type="text/javascript"></script>
     </head>
     <body>
-        <h1 class="lmap-title">Интересные места ВДНХ</h1>
-        <div class="lmap-cont">
-            <div id="lmap"></div>
-            <div class="rpl-cont">
-                <div class="rpl">
-                    {% for point in routePoints %}
-                    <form class="rpl-entry" draggable="true" method="post">
-                        <p class="rpl-name">{{ point.name }}</p>
-                        <input class="rpl-pos" type="hidden" value="{{ point.pos }}"/>
-                        <input class="rpl-del" type="submit" value="Удалить"/>
+        <h1 class="title">Интересные места ВДНХ</h1>
+        <div class="app">
+            <div id="map"></div>
+            <div class="menu">
+                <div class="points">
+                    {% for point in points %}
+                    <form class="point" draggable="true" method="post">
+                        <p class="point-name">{{ point.name }}</p>
+                        <input class="point-pos" type="hidden" value="{{ point.pos }}"/>
+                        <input class="point-remove" type="submit" value="Удалить"/>
                     </form>
                     {% endfor %}
                 </div>
-                <input class="rpl-href" type="button" onclick="window.location.href='/route/'" value="Построить маршрут"/>
+                <input class="href" type="button" onclick="window.location.href='/route/'" value="Построить маршрут"/>
             </div>
         </div>
     </body>

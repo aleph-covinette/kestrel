@@ -1,13 +1,13 @@
-.lmap-title {
+.title {
     text-align: center;
 }
 
-.lmap-cont {
+.app {
     display: flex;
     padding: 10px 10px;
 }
 
-#lmap {
+#map {
     border: 2px solid black;
     background: silver;
     width: 800px;
@@ -15,20 +15,20 @@
     margin: 0px 60px;
 }
 
-.rpl-cont {
+.menu {
     flex: 1 1 auto;
     margin-right: 60px;
     float: right;
 }
 
-.rpl {
+.points {
     padding: 5px 0px;
     height: min-content;
     border: 3px solid black;
     background: silver;
 }
 
-.rpl-entry {
+.point {
     border: 3px solid black;
     margin: 10px 25px;
     display: flex;
@@ -38,7 +38,7 @@
     border: 3px dotted black;
 }
 
-.rpl-name {
+.point-name {
     background-color: white;
     font-family: Arial;
     font-size: 18px;
@@ -49,11 +49,11 @@
     width: 75%;
 }
 
-.rpl-name:hover {
+.point-name:hover {
     background-color: gainsboro;
 }
 
-.rpl-del {
+.point-remove {
     border: none;
     border-left: 3px solid black;
     background-color: white;
@@ -64,11 +64,11 @@
     margin: 0px;
 }
 
-.rpl-del:hover {
+.point-remove:hover {
     background-color: gainsboro;
 }
 
-.rpl-href {
+.href {
     border: 3px solid black;
     background-color: white;
     margin: 10px 0px;
@@ -77,6 +77,6 @@
     padding: 10px;
     margin: 20px 0px;
 }
-.rpl-href:hover {
+.href:hover {
     background-color: gainsboro;
 }

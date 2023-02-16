@@ -2,7 +2,7 @@ ymaps.ready(mapIndexInit);
 var features = [];
 
 function mapIndexInit() {
-    var mapIndex = new ymaps.Map('lmap', {center: [55.833925, 37.628259], zoom: 15, controls: ['zoomControl']}, {restrictMapArea: true});
+    var mapIndex = new ymaps.Map('map', {center: [55.833925, 37.628259], zoom: 15, controls: ['zoomControl']}, {restrictMapArea: true});
     mapIndex.setType('yandex#satellite');
     objectManager = new ymaps.ObjectManager({clusterize: true, gridSize: 32, clusterDisableClickZoom: true});
     objectManager.objects.options.set('preset', 'islands#greenDotIcon');
@@ -12,14 +12,14 @@ function mapIndexInit() {
 }
 
 function routePointListRender(response) {
-    var routePointList = $('.rpl');
+    var routePointList = $('.points');
     routePointList.children().remove();
-    for (let point in response.routePoints) {
-        updData = '<form method="post" class="rpl-entry" draggable="true"><p class="rpl-name">' + response.routePoints[point].name;
-        updData += '</p><input class="rpl-pos" type="hidden" value="' + response.routePoints[point].pos + '"/><input class="rpl-del" type="submit" value="Удалить"></form>';
+    for (let point of response.routePoints) {
+        updData = '<form class="point" draggable="true" method="post"><p class="point-name">' + point.name;
+        updData += '</p><input class="point-pos" type="hidden" value="' + point.pos + '"/><input class="point-remove" type="submit" value="Удалить"/></form>';
         routePointList.append(updData);
     }
-    items = document.querySelectorAll('.rpl-entry');
+    items = document.querySelectorAll('.point');
     items.forEach(function(item) {
         item.addEventListener('dragstart', handleDragStart);
         item.addEventListener('dragover', handleDragOver);
@@ -30,11 +30,11 @@ function routePointListRender(response) {
     });
 }
 
-$(document).on('submit', '.route-point-add-form', function(e) {
+$(document).on('submit', '.point-add', function(e) {
     e.preventDefault();
     targ = features.filter(function (x) {return x.id == e.target[1].value})[0];
     $.ajax({type: 'POST', url: '/', data: {
-        reason: 'rpladd',
+        reason: 'add',
         name: targ.properties.balloonContentHeader,
         point: targ.id,
         csrfmiddlewaretoken: csrftoken
@@ -42,10 +42,10 @@ $(document).on('submit', '.route-point-add-form', function(e) {
     success: function(response) {routePointListRender(response)}});
 });
 
-$(document).on('submit', '.rpl-entry', function(e) {
+$(document).on('submit', '.point', function(e) {
     e.preventDefault();
     $.ajax({type: 'POST',url: '/', data: {
-        reason: 'rplremove',
+        reason: 'remove',
         pos: e.target[0].value,
         csrfmiddlewaretoken: csrftoken
     },

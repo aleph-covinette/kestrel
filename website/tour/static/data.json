@@ -3,12 +3,17 @@
     "features": [
         {"type": "Feature", "id": 0, "geometry": {"type": "Point", "coordinates": [55.833056, 37.622091]}, "properties": {
             "balloonContentHeader": "Первая тестовая точка!",
-            "balloonContentBody": "<form method='post' class='route-point-add-form'><input type='hidden' value='Первая тестовая точка'><input type='hidden' value='0'><input type='submit' value='Добавить в маршрут'></form>",
+            "balloonContentBody": "<form method='post' class='point-add'><input type='hidden' value='Первая тестовая точка'><input type='hidden' value='0'><input type='submit' value='Добавить в маршрут'></form>",
             "hintContent": "Wow!"
         }},
         {"type": "Feature", "id": 1, "geometry": {"type": "Point", "coordinates": [55.837056, 37.622091]}, "properties": {
             "balloonContentHeader": "Вторая тестовая точка!",
-            "balloonContentBody": "<form method='post' class='route-point-add-form'><input type='hidden' value='Вторая тестовая точка'><input type='hidden' value='1'><input type='submit' value='Добавить в маршрут'></form>",
+            "balloonContentBody": "<form method='post' class='point-add'><input type='hidden' value='Вторая тестовая точка'><input type='hidden' value='1'><input type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Wow!"
+        }},
+        {"type": "Feature", "id": 2, "geometry": {"type": "Point", "coordinates": [55.835056, 37.624091]}, "properties": {
+            "balloonContentHeader": "Третья тестовая точка!",
+            "balloonContentBody": "<form method='post' class='point-add'><input type='hidden' value='Третья тестовая точка'><input type='hidden' value='2'><input type='submit' value='Добавить в маршрут'></form>",
             "hintContent": "Wow!"
         }}
     ]

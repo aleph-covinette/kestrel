@@ -43,12 +43,11 @@ function handleDrop(e) {
         this.innerHTML = e.dataTransfer.getData('text/html');
     };
     entriesNew = [];
-    document.querySelectorAll('.rpl-entry').forEach(function(entry) {
+    document.querySelectorAll('.point').forEach(function(entry) {
         entriesNew.push(entry[0].value)
     });
-    console.log(entriesNew);
     $.ajax({type: 'POST',url: '/', data: {
-        reason: 'rplupdate',
+        reason: 'update',
         entries: entriesNew,
         csrfmiddlewaretoken: csrftoken
     },
@@ -57,7 +56,7 @@ function handleDrop(e) {
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {    
-    items = document.querySelectorAll('.rpl-entry');
+    items = document.querySelectorAll('.point');
     items.forEach(function(item) {
         item.addEventListener('dragstart', handleDragStart);
         item.addEventListener('dragover', handleDragOver);
