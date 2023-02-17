@@ -1,3 +1,5 @@
+var savedRoutes = [], names = [];
+
 ymaps.modules.define('StatsView', ['util.defineClass'], function (provide, defineClass) {
     function StatsView (model) {
         this.model = model;
@@ -24,21 +26,18 @@ ymaps.modules.define('StatsView', ['util.defineClass'], function (provide, defin
         processSuccessRequest: function (model, e) {
             var routes = model.getRoutes(),
                 result = [];
+            savedRoutes = routes;
             if (routes.length) {
-                result.push("Всего маршрутов: " + routes.length + ".");
                 for (var i = 0, l = routes.length; i < l; i++) {
                     result.push(
-                        (i + 1) + '. ' + [
-                            "Протяженность маршрута: " + 
-                            routes[i].properties.get("distance").text + "<br/>" +
-                            "Время в пути: " + routes[i].properties.get("duration").text
-                        ].join("<br/>")
+                        '<form class="route" draggable="true" method="post"><p class="point-name">Длительность: ' +
+                        routes[i].properties.get('duration').text + '<br>Протяжённость: ' + routes[i].properties.get('distance').text + '</p></form>'
                     );
                 }
             } else {
                 result.push("Нет маршрутов.");
             }
-            return result.join("<br/>");
+            return result.join("");
         },
 
 
@@ -52,11 +51,28 @@ ymaps.modules.define('StatsView', ['util.defineClass'], function (provide, defin
     provide(StatsView);
 });
 
+function saveRoute() {
+    if (savedRoutes != []) {
+        $.ajax({type: 'POST', url: '/route/', data: {
+            reason: 'add',
+            id: points,
+            time: savedRoutes[0].properties.get("duration"),
+            dist: savedRoutes[0].properties.get("distance"),
+            name: names[0] + ' - ' + names.reverse()[0],
+            csrfmiddlewaretoken: csrftoken
+        }});
+    }
+}
+
 function init() { 
     $.ajax({url: '/static/data.json'}).done(function(data) { 
         var features = data.features, coordinates = [];
-        for (let id of points) {coordinates.push(features.filter(function (x) {return x.id == id})[0].geometry.coordinates);}
-        var model = new ymaps.multiRouter.MultiRouteModel(coordinates, 
+        names = [];
+        for (let id of points) {
+            coordinates.push(features.filter(function (x) {return x.id == id})[0].geometry.coordinates);
+            names.push(features.filter(function (x) {return x.id == id})[0].properties.balloonContentHeader);
+        }
+        model = new ymaps.multiRouter.MultiRouteModel(coordinates, 
         {
             boundsAutoApply: true
         }), map = new ymaps.Map('map', {

@@ -1,6 +1,7 @@
 // Имплементация перестановки элементов в списке выбранных точек
 var enterTarget = null;
 var items = null;
+var itemsRoute = null;
 
 function handleDragStart(e) {
     this.style.opacity = '0.4';
@@ -12,6 +13,13 @@ function handleDragStart(e) {
 function handleDragEnd(e) {
     this.style.opacity = '1';
     items.forEach(function (item) {
+        item.classList.remove('over');
+    });
+}
+
+function handleDragEndRoute(e) {
+    this.style.opacity = '1';
+    itemsRoute.forEach(function (item) {
         item.classList.remove('over');
     });
 }
@@ -55,6 +63,25 @@ function handleDrop(e) {
     return false;
 }
 
+function handleDropRoute(e) {
+    e.stopPropagation();
+    if (dragSrcEl !== this) {
+        dragSrcEl.innerHTML = this.innerHTML;
+        this.innerHTML = e.dataTransfer.getData('text/html');
+    };
+    entriesNew = [];
+    document.querySelectorAll('.route').forEach(function(entry) {
+        entriesNew.push(entry[0].value)
+    });
+    $.ajax({type: 'POST',url: '/', data: {
+        reason: 'update-route',
+        entries: entriesNew,
+        csrfmiddlewaretoken: csrftoken
+    },
+    success: function(response) {routeListRender(response)}});
+    return false;
+}
+
 document.addEventListener('DOMContentLoaded', (event) => {    
     items = document.querySelectorAll('.point');
     items.forEach(function(item) {
@@ -64,5 +91,17 @@ document.addEventListener('DOMContentLoaded', (event) => {
         item.addEventListener('dragleave', handleDragLeave);
         item.addEventListener('dragend', handleDragEnd);
         item.addEventListener('drop', handleDrop);
+    });
+});
+
+document.addEventListener('DOMContentLoaded', (event) => {    
+    itemsRoute = document.querySelectorAll('.route');
+    itemsRoute.forEach(function(item) {
+        item.addEventListener('dragstart', handleDragStart);
+        item.addEventListener('dragover', handleDragOver);
+        item.addEventListener('dragenter', handleDragEnter);
+        item.addEventListener('dragleave', handleDragLeave);
+        item.addEventListener('dragend', handleDragEndRoute);
+        item.addEventListener('drop', handleDropRoute);
     });
 });
