@@ -8,37 +8,51 @@
         <script>const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;</script>
         <script src="https://api-maps.yandex.ru/2.1/?apikey={{ secret }}&lang=ru_RU" type="text/javascript"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-        <script src="{% static 'drag.js' %}" type="text/javascript"></script>
         <script src="{% static 'index.js' %}" type="text/javascript"></script>
+        <script src="{% static 'listeners.js' %}" type="text/javascript"></script>
     </head>
     <body>
-        <h1 class="title">- Интересные места ВДНХ -</h1>
-        <div class="app">
-            <div id="map"></div>
-            <div class="menu">
-                <div class="routes">
+        <h1 class="ttl txt">- Интересные места ВДНХ -</h1>
+        <div class="app flx">
+            <div class="cnt-n" id="map"></div>
+            <div class="mn flx-s">
+                <div class="cnt-n dc-rt">
                     {% for route in routes %}
-                    <form class="route" draggable="true" method="post">
-                        <p class="point-name">{{ route.name }}<br>
-                            Длительность: {{ route.time }} с<br>
-                            Протяжённость: {{ route.dist }} м
+                    <div class="cnt-f flx d-rt" draggable="true">
+                        <p class="fld-n txt flx-s">
+                            От: {{ route.name1 }}<br>
+                            До: {{ route.name2 }}<br>
+                            Длительность: {{ route.time }}<br>
+                            Протяжённость: {{ route.dist }}
                         </p>
-                        <input type="hidden" value="{{ route.pos }}"/>
-                        <input class="point-remove" type="submit" value="Удалить"/>
-                    </form>
+                        <form class="de-rt" method="post">
+                            <input type="hidden" value="{{ route.pos }}"/>
+                            <input class="fld-n txt" type="submit" value="Загрузить"/>
+                        </form>
+                        <form class="df-rt" method="post">
+                            <input type="hidden" value="{{ route.pos }}"/>
+                            <input class="fld-n txt" type="submit" value="Удалить"/>
+                        </form>
+                    </div>
                     {% endfor %}
                 </div>
-                <div class="points">
+                <div class="cnt-n dc-rp">
                     {% for point in points %}
-                    <form class="point" draggable="true" method="post">
-                        <p class="point-name">{{ point.name }}</p>
-                        <input type="hidden" value="{{ point.pos }}"/>
-                        <input class="point-remove" type="submit" value="Удалить"/>
-                    </form>
+                    <div class="cnt-f flx d-rp" draggable="true">
+                        <p class="fld-n txt flx-s">
+                            {{ point.name }}
+                        </p>
+                        <form class="df-rp" draggable="true" method="post">
+                            <input type="hidden" value="{{ point.pos }}"/>
+                            <input class="fld-n flx-s txt" type="submit" value="Удалить"/>
+                        </form>
+                    </div>
                     {% endfor %}
                 </div>
-                <div class="buttons">
-                    <input class="href" type="button" onclick="window.location.href='/route/'" value="Построить маршрут"/>
+                <div class="cnt-n">
+                    <div class="cnt-f flx">
+                        <input class="fld-n flx-s txt" type="button" onclick="window.location.href='/route/'" value="Построить маршрут"/>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,11 +1,11 @@
-var savedRoutes = [], names = [];
+var savedRoutes = [], names = [], textTime = null, textDist = null;
 
 ymaps.modules.define('StatsView', ['util.defineClass'], function (provide, defineClass) {
     function StatsView (model) {
         this.model = model;
         this.state = "init";
         this.stateChangeEvent = null;
-        this.outputElement =  $('#info');
+        this.outputElement =  $('.dc-rl');
         this.rebuildOutput();
         model.events.add(["requestsuccess", "requestfail", "requestsend"], this.onModelStateChange, this);        
     }
@@ -29,9 +29,22 @@ ymaps.modules.define('StatsView', ['util.defineClass'], function (provide, defin
             savedRoutes = routes;
             if (routes.length) {
                 for (var i = 0, l = routes.length; i < l; i++) {
+                    var time = routes[i].properties.get('duration').value;
+                    var dist = routes[i].properties.get('distance').value;
+                    if (time < 60) {
+                        textTime = time + ' с';
+                    } else {
+                        textTime = ((time - (time % 60)) / 60) + ' мин ' + time % 60 + ' с';
+                    }
+                    console.log(dist);
+                    if (dist < 1000) {
+                        textDist = dist + ' м';
+                    } else {
+                        textDist = ((dist - (dist % 1000)) / 1000) + ' км ' + dist % 1000 + ' м';
+                    }
                     result.push(
-                        '<form class="route" draggable="true" method="post"><p class="point-name">Длительность: ' +
-                        routes[i].properties.get('duration').text + '<br>Протяжённость: ' + routes[i].properties.get('distance').text + '</p></form>'
+                        '<div class="cnt-f flx d-rt" draggable="true"><p class="fld-n txt flx-s">Длительность: ' + 
+                        textTime + '<br>Протяжённость: ' + textDist + '</p></div>'
                     );
                 }
             } else {
@@ -40,25 +53,25 @@ ymaps.modules.define('StatsView', ['util.defineClass'], function (provide, defin
             return result.join("");
         },
 
-
         destroy: function () {
             this.outputElement.remove();
             this.model.events
                 .remove(["requestsuccess", "requestfail", "requestsend"], this.onModelStateChange, this);
         }
     });
-
     provide(StatsView);
 });
 
 function saveRoute() {
     if (savedRoutes != []) {
         $.ajax({type: 'POST', url: '/route/', data: {
+            source: 'route',
             reason: 'add',
             id: points,
-            time: savedRoutes[0].properties.get("duration"),
-            dist: savedRoutes[0].properties.get("distance"),
-            name: names[0] + ' - ' + names.reverse()[0],
+            time: textTime,
+            dist: textDist,
+            name1: names[0],
+            name2: names.reverse()[0],
             csrfmiddlewaretoken: csrftoken
         }});
     }
