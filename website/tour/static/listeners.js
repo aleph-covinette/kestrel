@@ -1,6 +1,12 @@
 // This file defines event listeners
 
 document.addEventListener('DOMContentLoaded', (event) => {
+    var slider = document.getElementById("sld-i");
+    var output = document.getElementById("sld-o");
+    output.innerHTML = slider.value + ' мин';
+    slider.oninput = function() {
+        output.innerHTML = this.value + ' мин';
+    } 
     reloadDndListeners();
 });
 
@@ -48,7 +54,6 @@ $(document).on('submit', '.de-rt', function(e) {
         csrfmiddlewaretoken: csrftoken
     }, success: function(response) {
         points = response.elements
-        console.log(points);
         var names = [], pois = [];
         for (point of points) {
             targ = features.filter(function (x) {return x.id == Number(point)})[0];

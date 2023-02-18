@@ -43,6 +43,28 @@ body {
     flex: 1 1 auto;
 }
 
+#sld-o {
+    width: 84px;
+}
+
+.sld {
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+    background: #353839;
+    height: 0px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.sld::-moz-range-thumb {
+    width: 30px;
+    height: 30px;
+    background: #353839; /* Green background */
+    border: 2px solid #e5e4e2;
+    cursor: pointer; /* Cursor on hover */
+}
+
 #map {
     width: 800px;
     height: 800px;

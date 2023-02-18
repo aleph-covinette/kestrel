@@ -1,8 +1,7 @@
 from django.views.generic import TemplateView
 from django.http import JsonResponse
 from configparser import ConfigParser
-from .models import Point, Route
-import time
+from .models import Point, Route, Limit
 
 config = ConfigParser()
 config.read('secret.conf')
@@ -20,7 +19,7 @@ class IndexView(TemplateView):
     def post(self, request, *args, **kwargs):
         if request.POST.get('source') == 'point':
             if request.POST.get('reason') == 'add':
-                point = Point(
+                Point(
                     name = request.POST.get('name'), 
                     poi = request.POST.get('poi'), 
                     pos = 1 + max([i[0] for i in Point.objects.values_list('pos')] + [-1])
@@ -50,6 +49,10 @@ class IndexView(TemplateView):
                         poi = pois[i],
                         pos = 1 + max([i[0] for i in Point.objects.values_list('pos')] + [-1])
                     ).save()
+            if request.POST.get('reason') == 'value':
+                Limit(
+                    time = int(request.POST.get('time')) * 60
+                ).save()
             return JsonResponse({'elements': [{'pos': i.pos, 'name': i.name} for i in Point.objects.all().order_by('pos')]})
         if request.POST.get('source') == 'route':
             if request.POST.get('reason') == 'remove':
@@ -71,11 +74,9 @@ class IndexView(TemplateView):
                     s += 1
             if request.POST.get('reason') == 'translate':
                 obs = Point.objects.all().delete()
-                time.sleep(1)
                 ob = Route.objects.filter(pos=request.POST.get('pos'))[0]
                 return JsonResponse({'elements': ob.poi})
             if request.POST.get('reason') == 'reload':
-                print(Point.objects.values_list('pos'))
                 return JsonResponse({'elements': [{'pos': i.pos, 'name': i.name} for i in Point.objects.all().order_by('pos')]})
             return JsonResponse({'elements': [{'pos': i.pos, 'dist': i.dist, 'time': i.time, 'name1': i.name1, 'name2': i.name2} for i in Route.objects.all().order_by('pos')]})
         context = self.get_context_data(**kwargs)
@@ -89,6 +90,8 @@ class RouteView(TemplateView):
         points = Point.objects.all().order_by('pos')
         context['secret'] = config.get('main', 'api_key')
         context['points'] = [p.poi for p in points]
+        context['expectedTime'] = Limit.objects.all()[0].time
+        Limit.objects.all().delete()
         return context
 
     def post(self, request, *args, **kwargs):

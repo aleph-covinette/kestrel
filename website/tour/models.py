@@ -12,3 +12,6 @@ class Route(models.Model):
     dist = models.CharField(max_length=100)
     time = models.CharField(max_length=100)
     pos = models.IntegerField(default=-1)
+
+class Limit(models.Model):
+    time = models.IntegerField(default=-1)

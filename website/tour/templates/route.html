@@ -7,12 +7,13 @@
         <link rel="stylesheet" href="{% static 'styles.css' %}">
         <script>const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;</script>
         <script>var points = JSON.parse("{{ points }}");</script>
+        <script>var expectedTime = "{{ expectedTime }}";</script>
         <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey={{ secret }}" type="text/javascript"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
         <script src="{% static 'route.js' %}" type="text/javascript"></script>
     </head>
     <body>
-        <h1 class="ttl txt">- Построенный маршрут -</h1>
+        <h1 class="ttl txt">- Маршрут -</h1>
         <div class="app flx">
             <div class="cnt-n" id="map"></div>
             <div class="mn flx-s">

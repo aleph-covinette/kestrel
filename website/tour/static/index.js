@@ -39,6 +39,18 @@ function dndLeave(e) {
     }
 }
 
+function buildRoute() {
+    $.ajax({type: 'POST',url: '/', data: {
+        source: 'point',
+        reason: 'value',
+        time: document.getElementById("sld-i").value,
+        csrfmiddlewaretoken: csrftoken
+    },
+    success: function(response) {
+        window.location.href='/route/';
+    }});
+}
+
 function dndDrop(e) {
     e.stopPropagation();
     if (source !== this) {

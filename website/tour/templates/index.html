@@ -16,6 +16,12 @@
         <div class="app flx">
             <div class="cnt-n" id="map"></div>
             <div class="mn flx-s">
+                <div class="cnt-n">
+                    <div class="cnt-f flx">
+                        <input class="fld-n flx-s sld" type="range" min="5" max="120" value="30" id="sld-i">
+                        <p class ="fld-n txt" id="sld-o">30 мин</p>
+                    </div>
+                </div>
                 <div class="cnt-n dc-rt">
                     {% for route in routes %}
                     <div class="cnt-f flx d-rt" draggable="true">
@@ -51,7 +57,7 @@
                 </div>
                 <div class="cnt-n">
                     <div class="cnt-f flx">
-                        <input class="fld-n flx-s txt" type="button" onclick="window.location.href='/route/'" value="Построить маршрут"/>
+                        <input class="fld-n flx-s txt" type="button" onclick="buildRoute()" value="Построить маршрут"/>
                     </div>
                 </div>
             </div>

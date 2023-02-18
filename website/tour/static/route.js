@@ -1,4 +1,21 @@
-var savedRoutes = [], names = [], textTime = null, textDist = null;
+var savedRoutes = [], names = [], textTime = null, textDist = null, map = null;
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    var nmap = $('#map')[0];
+    nmap.style.opacity = 0;
+});
+
+function renderReveal() {
+    nmap = $('#map')[0];
+    nmap.style.opacity = 1;
+}
+
+function preventRendering() {
+    map.destroy();
+    map = new ymaps.Map('map', {center: [55.833925, 37.628259], zoom: 15, controls: ['zoomControl']}, {restrictMapArea: true});
+    map.setType('yandex#satellite');
+    renderReveal()
+}
 
 ymaps.modules.define('StatsView', ['util.defineClass'], function (provide, defineClass) {
     function StatsView (model) {
@@ -27,28 +44,44 @@ ymaps.modules.define('StatsView', ['util.defineClass'], function (provide, defin
             var routes = model.getRoutes(),
                 result = [];
             savedRoutes = routes;
+            var counter = 0;
             if (routes.length) {
                 for (var i = 0, l = routes.length; i < l; i++) {
                     var time = routes[i].properties.get('duration').value;
                     var dist = routes[i].properties.get('distance').value;
-                    if (time < 60) {
-                        textTime = time + ' с';
-                    } else {
-                        textTime = ((time - (time % 60)) / 60) + ' мин ' + time % 60 + ' с';
+                    if (time < Number(expectedTime)) {
+                        counter++;
+                        if (time < 60) {
+                            textTime = time + ' с';
+                        } else {
+                            textTime = ((time - (time % 60)) / 60) + ' мин ' + time % 60 + ' с';
+                        }
+                        console.log(dist);
+                        if (dist < 1000) {
+                            textDist = dist + ' м';
+                        } else {
+                            textDist = ((dist - (dist % 1000)) / 1000) + ' км ' + dist % 1000 + ' м';
+                        }
+                        result.push(
+                            '<div class="cnt-f flx d-rt" draggable="true"><p class="fld-n txt flx-s">Длительность: ' + 
+                            textTime + '<br>Протяжённость: ' + textDist + '</p></div>'
+                        );
                     }
-                    console.log(dist);
-                    if (dist < 1000) {
-                        textDist = dist + ' м';
-                    } else {
-                        textDist = ((dist - (dist % 1000)) / 1000) + ' км ' + dist % 1000 + ' м';
-                    }
+                    renderReveal();
+                }
+                if (counter == 0) {
+                    preventRendering();
                     result.push(
-                        '<div class="cnt-f flx d-rt" draggable="true"><p class="fld-n txt flx-s">Длительность: ' + 
-                        textTime + '<br>Протяжённость: ' + textDist + '</p></div>'
+                        '<div class="cnt-f flx d-rt" draggable="true"><p class="fld-n txt flx-s"> Нет маршрутов, удовлетворяющих вашим требованиям.<br>'+
+                        'Попробуйте выбрать другие точки или убрать ограничение по времени.</p></div>'
                     );
                 }
             } else {
-                result.push("Нет маршрутов.");
+                preventRendering();
+                result.push(
+                    '<div class="cnt-f flx d-rt" draggable="true"><p class="fld-n txt flx-s"> Нет маршрутов, удовлетворяющих вашим требованиям.<br>' +
+                    'Попробуйте выбрать другие точки.</p></div>'
+                );
             }
             return result.join("");
         },
@@ -85,10 +118,11 @@ function init() {
             coordinates.push(features.filter(function (x) {return x.id == id})[0].geometry.coordinates);
             names.push(features.filter(function (x) {return x.id == id})[0].properties.balloonContentHeader);
         }
-        model = new ymaps.multiRouter.MultiRouteModel(coordinates, 
+        var model = new ymaps.multiRouter.MultiRouteModel(coordinates, 
         {
             boundsAutoApply: true
-        }), map = new ymaps.Map('map', {
+        });
+        map = new ymaps.Map('map', {
             center: [55.833925, 37.628259],
             zoom: 15,
             controls: ['zoomControl']
