@@ -123,8 +123,8 @@ function mapIndexInit() {
     var mapIndex = new ymaps.Map('map', {center: [55.833925, 37.628259], zoom: 15, controls: ['zoomControl']}, {restrictMapArea: true});
     mapIndex.setType('yandex#satellite');
     objectManager = new ymaps.ObjectManager({clusterize: true, gridSize: 32, clusterDisableClickZoom: true});
-    objectManager.objects.options.set('preset', 'islands#blackDotIcon');
-    objectManager.clusters.options.set('preset', 'islands#blackClusterIcons');
+    objectManager.objects.options.set('preset', 'islands#redDotIcon');
+    objectManager.clusters.options.set('preset', 'islands#redClusterIcons');
     mapIndex.geoObjects.add(objectManager);
     $.ajax({url: '/static/data.json'}).done(function(data) {objectManager.add(data); features = data.features;});
 }

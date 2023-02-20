@@ -1,20 +1,310 @@
 {
     "type": "FeatureCollection",
     "features": [
-        {"type": "Feature", "id": 0, "geometry": {"type": "Point", "coordinates": [55.833056, 37.622091]}, "properties": {
-            "balloonContentHeader": "Первая тестовая точка",
-            "balloonContentBody": "<form method='post' class='point-add'><input type='hidden' value='Первая тестовая точка'><input type='hidden' value='0'><input type='submit' value='Добавить в маршрут'></form>",
-            "hintContent": "Wow!"
+        {"type": "Feature", "id": 0, "geometry": {"type": "Point", "coordinates": [55.82849265921935, 37.63382267520143]}, "properties": {
+            "balloonContentHeader": "Павильон №1. Экспозиция Третьяковской галереи (Центральный)",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №1. Экспозиция Третьяковской галереи (Центральный)'><input type='hidden' value='0'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №1. Экспозиция Третьяковской галереи (Центральный)"
         }},
-        {"type": "Feature", "id": 1, "geometry": {"type": "Point", "coordinates": [55.837056, 37.622091]}, "properties": {
-            "balloonContentHeader": "Вторая тестовая точка",
-            "balloonContentBody": "<form method='post' class='point-add'><input type='hidden' value='Вторая тестовая точка'><input type='hidden' value='1'><input type='submit' value='Добавить в маршрут'></form>",
-            "hintContent": "Wow!"
+        {"type": "Feature", "id": 1, "geometry": {"type": "Point", "coordinates": [55.82857702434285, 37.631322856496105]}, "properties": {
+            "balloonContentHeader": "Павильон №2. Робостанция",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №2. Робостанция'><input type='hidden' value='1'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №2. Робостанция"
         }},
-        {"type": "Feature", "id": 2, "geometry": {"type": "Point", "coordinates": [55.835056, 37.624091]}, "properties": {
-            "balloonContentHeader": "Третья тестовая точка",
-            "balloonContentBody": "<form method='post' class='point-add'><input type='hidden' value='Третья тестовая точка'><input type='hidden' value='2'><input type='submit' value='Добавить в маршрут'></form>",
-            "hintContent": "Wow!"
+        {"type": "Feature", "id": 2, "geometry": {"type": "Point", "coordinates": [55.82861724544413, 37.630400138022]}, "properties": {
+            "balloonContentHeader": "Павильон №4. Выставочно-торговый центр Киргизской Республики",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №4. Выставочно-торговый центр Киргизской Республики'><input type='hidden' value='2'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №4. Выставочно-торговый центр Киргизской Республики"
+        }},
+        {"type": "Feature", "id": 3, "geometry": {"type": "Point", "coordinates": [55.828822131195984, 37.62945600045059]}, "properties": {
+            "balloonContentHeader": "Павильон №5. Музей городского хозяйства Москвы",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №5. Музей городского хозяйства Москвы'><input type='hidden' value='3'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №5. Музей городского хозяйства Москвы"
+        }},
+        {"type": "Feature", "id": 4, "geometry": {"type": "Point", "coordinates": [55.829197114145416, 37.62960378548253]}, "properties": {
+            "balloonContentHeader": "Павильон №6. Выставочно-торговый центр Республики Абхазия",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №6. Выставочно-торговый центр Республики Абхазия'><input type='hidden' value='4'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №6. Выставочно-торговый центр Республики Абхазия"
+        }},
+        {"type": "Feature", "id": 5, "geometry": {"type": "Point", "coordinates": [55.82773988798856, 37.62676830617771]}, "properties": {
+            "balloonContentHeader": "Павильон №7. \"Союзмультпарк\"",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №7. \"Союзмультпарк\"'><input type='hidden' value='5'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №7. \"Союзмультпарк\""
+        }},
+        {"type": "Feature", "id": 6, "geometry": {"type": "Point", "coordinates": [55.829229199848974, 37.62819245604585]}, "properties": {
+            "balloonContentHeader": "Павильон №9. Театр сказок",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №9. Театр сказок'><input type='hidden' value='6'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №9. Театр сказок"
+        }},
+        {"type": "Feature", "id": 7, "geometry": {"type": "Point", "coordinates": [55.828882129265935, 37.62728966047227]}, "properties": {
+            "balloonContentHeader": "Павильон №8. Юные Натуралисты",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №8. Юные Натуралисты'><input type='hidden' value='7'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №8. Юные Натуралисты"
+        }},
+        {"type": "Feature", "id": 8, "geometry": {"type": "Point", "coordinates": [55.829652572532325, 37.62942832183028]}, "properties": {
+            "balloonContentHeader": "Павильон №10. Выставочно-торговый центр Республики Молдова",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №10. Выставочно-торговый центр Республики Молдова'><input type='hidden' value='8'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №10. Выставочно-торговый центр Республики Молдова"
+        }},
+        {"type": "Feature", "id": 9, "geometry": {"type": "Point", "coordinates": [55.83022854891419, 37.628985689049465]}, "properties": {
+            "balloonContentHeader": "Павильон №11. Выставочно-торговый центр Республики Казахстан",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №11. Выставочно-торговый центр Республики Казахстан'><input type='hidden' value='9'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №11. Выставочно-торговый центр Республики Казахстан"
+        }},
+        {"type": "Feature", "id": 10, "geometry": {"type": "Point", "coordinates": [55.830738059371654, 37.62764902570047]}, "properties": {
+            "balloonContentHeader": "Павильон №13. Музей Востока",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №13. Музей Востока'><input type='hidden' value='10'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №13. Музей Востока"
+        }},
+        {"type": "Feature", "id": 11, "geometry": {"type": "Point", "coordinates": [55.831015092663684, 37.627025866566996]}, "properties": {
+            "balloonContentHeader": "Павильон №14. Выставочно-торговый центр Азербайджанской Республики",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №14. Выставочно-торговый центр Азербайджанской Республики'><input type='hidden' value='11'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №14. Выставочно-торговый центр Азербайджанской Республики"
+        }},
+        {"type": "Feature", "id": 12, "geometry": {"type": "Point", "coordinates": [55.83159656799843, 37.62651624685394]}, "properties": {
+            "balloonContentHeader": "Павильон №15. Музей Олимпийского движения России",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №15. Музей Олимпийского движения России'><input type='hidden' value='12'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №15. Музей Олимпийского движения России"
+        }},
+        {"type": "Feature", "id": 13, "geometry": {"type": "Point", "coordinates": [55.830545085557205, 37.622782611904775]}, "properties": {
+            "balloonContentHeader": "Павильон №16. «Гидрометеорология»",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №16. «Гидрометеорология»'><input type='hidden' value='13'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №16. «Гидрометеорология»"
+        }},
+        {"type": "Feature", "id": 14, "geometry": {"type": "Point", "coordinates": [55.831392640477354, 37.62399379440654]}, "properties": {
+            "balloonContentHeader": "Павильон №17. Галерея \"Лес\"",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №17. Галерея \"Лес\"'><input type='hidden' value='14'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №17. Галерея \"Лес\""
+        }},
+        {"type": "Feature", "id": 15, "geometry": {"type": "Point", "coordinates": [55.83196169705841, 37.62538295838754]}, "properties": {
+            "balloonContentHeader": "Павильон №18. Выставочно-торговый центр Республики Беларусь",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №18. Выставочно-торговый центр Республики Беларусь'><input type='hidden' value='15'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №18. Выставочно-торговый центр Республики Беларусь"
+        }},
+        {"type": "Feature", "id": 16, "geometry": {"type": "Point", "coordinates": [55.8323075506963, 37.62496048068234]}, "properties": {
+            "balloonContentHeader": "Павильон №19. «Атом»",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №19. «Атом»'><input type='hidden' value='16'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №19. «Атом»"
+        }},
+        {"type": "Feature", "id": 17, "geometry": {"type": "Point", "coordinates": [55.83299924874743, 37.6220461005788]}, "properties": {
+            "balloonContentHeader": "Павильон №20. Центральный дом автоспорта",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №20. Центральный дом автоспорта'><input type='hidden' value='17'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №20. Центральный дом автоспорта"
+        }},
+        {"type": "Feature", "id": 18, "geometry": {"type": "Point", "coordinates": [55.832404633735315, 37.6204982789289]}, "properties": {
+            "balloonContentHeader": "Павильон №21. Выставка-реконструкция «Терракотовая армия. Бессмертные войны Китая»",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №21. Выставка-реконструкция «Терракотовая армия. Бессмертные войны Китая»'><input type='hidden' value='18'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №21. Выставка-реконструкция «Терракотовая армия. Бессмертные войны Китая»"
+        }},
+        {"type": "Feature", "id": 19, "geometry": {"type": "Point", "coordinates": [55.83218948149635, 37.616534865198815]}, "properties": {
+            "balloonContentHeader": "Павильон №22. Скалолазный центр BigWall",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №22. Скалолазный центр BigWall'><input type='hidden' value='19'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №22. Скалолазный центр BigWall"
+        }},
+        {"type": "Feature", "id": 20, "geometry": {"type": "Point", "coordinates": [55.83283315472749, 37.6188474143798]}, "properties": {
+            "balloonContentHeader": "Павильон №23. «Москвариум»",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №23. «Москвариум»'><input type='hidden' value='20'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №23. «Москвариум»"
+        }},
+        {"type": "Feature", "id": 21, "geometry": {"type": "Point", "coordinates": [55.8336615711343, 37.619613602761966]}, "properties": {
+            "balloonContentHeader": "Павильон №25 «Нефть»",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №25 «Нефть»'><input type='hidden' value='21'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №25 «Нефть»"
+        }},
+        {"type": "Feature", "id": 22, "geometry": {"type": "Point", "coordinates": [55.83443166084366, 37.6211889433581]}, "properties": {
+            "balloonContentHeader": "Павильон №26. Музей Транспорта Москвы",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №26. Музей Транспорта Москвы'><input type='hidden' value='22'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №26. Музей Транспорта Москвы"
+        }},
+        {"type": "Feature", "id": 23, "geometry": {"type": "Point", "coordinates": [55.83459850551716, 37.61263400652295]}, "properties": {
+            "balloonContentHeader": "Павильон №27. Физкультура и спорт",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №27. Физкультура и спорт'><input type='hidden' value='23'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №27. Физкультура и спорт"
+        }},
+        {"type": "Feature", "id": 24, "geometry": {"type": "Point", "coordinates": [55.836472271855015, 37.61641538451608]}, "properties": {
+            "balloonContentHeader": "Павильон №28. Эколого-просветительский центр «Пчеловодство»",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №28. Эколого-просветительский центр «Пчеловодство»'><input type='hidden' value='24'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №28. Эколого-просветительский центр «Пчеловодство»"
+        }},
+        {"type": "Feature", "id": 25, "geometry": {"type": "Point", "coordinates": [55.835782420349794, 37.61825537989787]}, "properties": {
+            "balloonContentHeader": "Павильон №29. Эколого-просветительский центр «Цветоводство»",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №29. Эколого-просветительский центр «Цветоводство»'><input type='hidden' value='25'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №29. Эколого-просветительский центр «Цветоводство»"
+        }},
+        {"type": "Feature", "id": 26, "geometry": {"type": "Point", "coordinates": [55.83501724321567, 37.6187167198506]}, "properties": {
+            "balloonContentHeader": "Павильон №30. Центр современных биотехнологий Музей БИОТЕХ",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №30. Центр современных биотехнологий Музей БИОТЕХ'><input type='hidden' value='26'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №30. Центр современных биотехнологий Музей БИОТЕХ"
+        }},
+        {"type": "Feature", "id": 27, "geometry": {"type": "Point", "coordinates": [55.83500218052296, 37.619687679512495]}, "properties": {
+            "balloonContentHeader": "Павильон №31 «Геология». Биологический музей им. К.А. Тимирязева",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №31 «Геология». Биологический музей им. К.А. Тимирязева'><input type='hidden' value='27'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №31 «Геология». Биологический музей им. К.А. Тимирязева"
+        }},
+        {"type": "Feature", "id": 28, "geometry": {"type": "Point", "coordinates": [55.83546912130141, 37.62210166762514]}, "properties": {
+            "balloonContentHeader": "Павильон №33. «Автомобильная промышленность»",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №33. «Автомобильная промышленность»'><input type='hidden' value='28'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №33. «Автомобильная промышленность»"
+        }},
+        {"type": "Feature", "id": 29, "geometry": {"type": "Point", "coordinates": [55.835161403009984, 37.621445613828854]}, "properties": {
+            "balloonContentHeader": "Павильон №34. Центр «Космонавтика и авиация»",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №34. Центр «Космонавтика и авиация»'><input type='hidden' value='29'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №34. Центр «Космонавтика и авиация»"
+        }},
+        {"type": "Feature", "id": 30, "geometry": {"type": "Point", "coordinates": [55.83837343425598, 37.61432129724404]}, "properties": {
+            "balloonContentHeader": "Павильон №35. Главтабак",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №35. Главтабак'><input type='hidden' value='30'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №35. Главтабак"
+        }},
+        {"type": "Feature", "id": 31, "geometry": {"type": "Point", "coordinates": [55.839638318232545, 37.6167798813056]}, "properties": {
+            "balloonContentHeader": "Павильон №36. Музей кино",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №36. Музей кино'><input type='hidden' value='31'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №36. Музей кино"
+        }},
+        {"type": "Feature", "id": 32, "geometry": {"type": "Point", "coordinates": [55.839753976786966, 37.618778302577454]}, "properties": {
+            "balloonContentHeader": "Павильон №37. Птицеводство",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №37. Птицеводство'><input type='hidden' value='32'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №37. Птицеводство"
+        }},
+        {"type": "Feature", "id": 33, "geometry": {"type": "Point", "coordinates": [55.83814665727687, 37.62071168944963]}, "properties": {
+            "balloonContentHeader": "Павильон №40. Школа пекарей",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №40. Школа пекарей'><input type='hidden' value='33'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №40. Школа пекарей"
+        }},
+        {"type": "Feature", "id": 34, "geometry": {"type": "Point", "coordinates": [55.83810728256702, 37.62247345556786]}, "properties": {
+            "balloonContentHeader": "Павильон №41. Центр национальных конных традиций",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №41. Центр национальных конных традиций'><input type='hidden' value='34'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №41. Центр национальных конных традиций"
+        }},
+        {"type": "Feature", "id": 35, "geometry": {"type": "Point", "coordinates": [55.83839520921287, 37.62336310363414]}, "properties": {
+            "balloonContentHeader": "Павильон №42. Центр национальных конных традиций (Музей лошади)",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №42. Центр национальных конных традиций (Музей лошади)'><input type='hidden' value='35'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №42. Центр национальных конных традиций (Музей лошади)"
+        }},
+        {"type": "Feature", "id": 36, "geometry": {"type": "Point", "coordinates": [55.8380629859686, 37.624257134205386]}, "properties": {
+            "balloonContentHeader": "Павильон №43. Показательная конюшня Центра национальных конных традиций",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №43. Показательная конюшня Центра национальных конных традиций'><input type='hidden' value='36'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №43. Показательная конюшня Центра национальных конных традиций"
+        }},
+        {"type": "Feature", "id": 37, "geometry": {"type": "Point", "coordinates": [55.84065114059377, 37.625439900465416]}, "properties": {
+            "balloonContentHeader": "Павильон №44. «Кролиководство»",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №44. «Кролиководство»'><input type='hidden' value='37'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №44. «Кролиководство»"
+        }},
+        {"type": "Feature", "id": 38, "geometry": {"type": "Point", "coordinates": [55.838259163474405, 37.62801460660386]}, "properties": {
+            "balloonContentHeader": "Павильон №46. «Экономика и организация АПК»",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №46. «Экономика и организация АПК»'><input type='hidden' value='38'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №46. «Экономика и организация АПК»"
+        }},
+        {"type": "Feature", "id": 39, "geometry": {"type": "Point", "coordinates": [55.83696435028965, 37.62420884012]}, "properties": {
+            "balloonContentHeader": "Павильон №47. Дом ремесел",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №47. Дом ремесел'><input type='hidden' value='39'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №47. Дом ремесел"
+        }},
+        {"type": "Feature", "id": 40, "geometry": {"type": "Point", "coordinates": [55.8375525209541, 37.622496146011024]}, "properties": {
+            "balloonContentHeader": "Павильон №48. «Главпиво»",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №48. «Главпиво»'><input type='hidden' value='40'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №48. «Главпиво»"
+        }},
+        {"type": "Feature", "id": 41, "geometry": {"type": "Point", "coordinates": [55.8377169330636, 37.620503030989234]}, "properties": {
+            "balloonContentHeader": "Павильон №49. Резиденция «Каскад + digital» при поддержке Музея Москвы",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №49. Резиденция «Каскад + digital» при поддержке Музея Москвы'><input type='hidden' value='41'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №49. Резиденция «Каскад + digital» при поддержке Музея Москвы"
+        }},
+        {"type": "Feature", "id": 42, "geometry": {"type": "Point", "coordinates": [55.837746106844556, 37.61930330515413]}, "properties": {
+            "balloonContentHeader": "Павильон №50. Молочная промышленность",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №50. Молочная промышленность'><input type='hidden' value='42'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №50. Молочная промышленность"
+        }},
+        {"type": "Feature", "id": 43, "geometry": {"type": "Point", "coordinates": [55.83723342932518, 37.61925318067983]}, "properties": {
+            "balloonContentHeader": "Павильон №51. Мясная промышленность",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №51. Мясная промышленность'><input type='hidden' value='43'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №51. Мясная промышленность"
+        }},
+        {"type": "Feature", "id": 44, "geometry": {"type": "Point", "coordinates": [55.83682730351386, 37.62083926223435]}, "properties": {
+            "balloonContentHeader": "Павильон №53-54. Музей Гаража особого назначения ФСО России",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №53-54. Музей Гаража особого назначения ФСО России'><input type='hidden' value='44'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №53-54. Музей Гаража особого назначения ФСО России"
+        }},
+        {"type": "Feature", "id": 45, "geometry": {"type": "Point", "coordinates": [55.83527793032676, 37.62306892213677]}, "properties": {
+            "balloonContentHeader": "Павильон №55. Музей оптических иллюзий",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №55. Музей оптических иллюзий'><input type='hidden' value='45'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №55. Музей оптических иллюзий"
+        }},
+        {"type": "Feature", "id": 46, "geometry": {"type": "Point", "coordinates": [55.834055444031456, 37.62645372799187]}, "properties": {
+            "balloonContentHeader": "Павильон №57. «Россия — моя история»",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №57. «Россия — моя история»'><input type='hidden' value='46'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №57. «Россия — моя история»"
+        }},
+        {"type": "Feature", "id": 47, "geometry": {"type": "Point", "coordinates": [55.832808202458736, 37.62708136490182]}, "properties": {
+            "balloonContentHeader": "Павильон №58. Музей славянской письменности «Слово»",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №58. Музей славянской письменности «Слово»'><input type='hidden' value='47'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №58. Музей славянской письменности «Слово»"
+        }},
+        {"type": "Feature", "id": 48, "geometry": {"type": "Point", "coordinates": [55.83316370050641, 37.62792357853119]}, "properties": {
+            "balloonContentHeader": "Павильон №59. Политехнический музей",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №59. Политехнический музей'><input type='hidden' value='48'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №59. Политехнический музей"
+        }},
+        {"type": "Feature", "id": 49, "geometry": {"type": "Point", "coordinates": [55.83395158767487, 37.62809235851879]}, "properties": {
+            "balloonContentHeader": "Павильон №60. Потребительская кооперация",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №60. Потребительская кооперация'><input type='hidden' value='49'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №60. Потребительская кооперация"
+        }},
+        {"type": "Feature", "id": 50, "geometry": {"type": "Point", "coordinates": [55.834630868433486, 37.62858758133333]}, "properties": {
+            "balloonContentHeader": "Павильон №61. Центросоюз",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №61. Центросоюз'><input type='hidden' value='50'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №61. Центросоюз"
+        }},
+        {"type": "Feature", "id": 51, "geometry": {"type": "Point", "coordinates": [55.83518281110203, 37.62777535569606]}, "properties": {
+            "balloonContentHeader": "Павильон №62. Международный центр балета",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №62. Международный центр балета'><input type='hidden' value='51'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №62. Международный центр балета"
+        }},
+        {"type": "Feature", "id": 52, "geometry": {"type": "Point", "coordinates": [55.832895719174566, 37.6292702452778]}, "properties": {
+            "balloonContentHeader": "Павильон №64. «Оптика»",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №64. «Оптика»'><input type='hidden' value='52'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №64. «Оптика»"
+        }},
+        {"type": "Feature", "id": 53, "geometry": {"type": "Point", "coordinates": [55.8315992518611, 37.63142401078286]}, "properties": {
+            "balloonContentHeader": "Павильон №66. Выставочно-культурный и экспозиционный центр Республики Узбекистан",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №66. Выставочно-культурный и экспозиционный центр Республики Узбекистан'><input type='hidden' value='53'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №66. Выставочно-культурный и экспозиционный центр Республики Узбекистан"
+        }},
+        {"type": "Feature", "id": 54, "geometry": {"type": "Point", "coordinates": [55.83102214665091, 37.632562552395605]}, "properties": {
+            "balloonContentHeader": "Павильон №67. Карелия",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №67. Карелия'><input type='hidden' value='54'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №67. Карелия"
+        }},
+        {"type": "Feature", "id": 55, "geometry": {"type": "Point", "coordinates": [55.8309115505988, 37.63373331688324]}, "properties": {
+            "balloonContentHeader": "Павильон №68. Выставочно-торговый центр Республики Армения",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №68. Выставочно-торговый центр Республики Армения'><input type='hidden' value='55'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №68. Выставочно-торговый центр Республики Армения"
+        }},
+        {"type": "Feature", "id": 56, "geometry": {"type": "Point", "coordinates": [55.83005371712154, 37.634231227850606]}, "properties": {
+            "balloonContentHeader": "Павильон №71. Атомная энергия",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Павильон №71. Атомная энергия'><input type='hidden' value='56'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Павильон №71. Атомная энергия"
+        }},
+        {"type": "Feature", "id": 57, "geometry": {"type": "Point", "coordinates": [55.82660650448946, 37.639836895177126]}, "properties": {
+            "balloonContentHeader": "Музей ВДНХ",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Музей ВДНХ'><input type='hidden' value='57'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Музей ВДНХ"
+        }},
+        {"type": "Feature", "id": 58, "geometry": {"type": "Point", "coordinates": [55.833829148761446, 37.623052032144884]}, "properties": {
+            "balloonContentHeader": "Самолет Як-42",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Самолет Як-42'><input type='hidden' value='58'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Самолет Як-42"
+        }},
+        {"type": "Feature", "id": 59, "geometry": {"type": "Point", "coordinates": [55.83405419091215, 37.622233040621246]}, "properties": {
+            "balloonContentHeader": "Вертолет Ми-8",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Вертолет Ми-8'><input type='hidden' value='59'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Вертолет Ми-8"
+        }},
+        {"type": "Feature", "id": 60, "geometry": {"type": "Point", "coordinates": [55.82621953509257, 37.629437797793486]}, "properties": {
+            "balloonContentHeader": "Колесо обозрения \"Солнце Москвы\"",
+            "balloonContentBody": "<form method='post' class='point-add flx'><input type='hidden' value='Колесо обозрения \"Солнце Москвы\"'><input type='hidden' value='60'><input class='fld-n txt flx-s' type='submit' value='Добавить в маршрут'></form>",
+            "hintContent": "Колесо обозрения \"Солнце Москвы\""
         }}
-    ]
-  }
+   ]    
+}
